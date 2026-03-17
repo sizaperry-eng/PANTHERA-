@@ -1,0 +1,235 @@
+╔══════════════════════════════════════════════════════════════════╗
+║    PANTHERA-AI — GITHUB SETUP GUIDE                             ║
+║    Creator: Peter Chukwudi Udevi                                ║
+║    From zero to GitHub + auto-deploy in 20 minutes             ║
+╚══════════════════════════════════════════════════════════════════╝
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+STEP 1 — CREATE GITHUB ACCOUNT (3 minutes)
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+1. Go to: https://github.com
+2. Click "Sign up"
+3. Username:  peterudevi   (or petercudevi / pantheraai)
+4. Email:     Sizaperry@gmail.com
+5. Password:  strong password
+6. Verify email → check Sizaperry@gmail.com inbox
+7. Done — you are now on GitHub
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+STEP 2 — CREATE THE REPOSITORY (2 minutes)
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+1. Click the green "New" button (top left)
+2. Fill in:
+     Repository name:   panthera-ai
+     Description:       World's First AI Bot Marketplace — Creator: Peter Chukwudi Udevi
+     Visibility:        ✅ Private  ← IMPORTANT: keep code private
+     Add README:        ✗ (we have our own)
+     Add .gitignore:    ✗ (we have our own)
+     Add license:       ✗ (we have our own)
+
+3. Click "Create repository"
+4. You will see a page with setup instructions — keep it open
+
+Your repo URL will be:
+  https://github.com/peterudevi/panthera-ai
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+STEP 3 — INSTALL GIT ON YOUR COMPUTER (if not already installed)
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+Windows:
+  Download from: https://git-scm.com/download/win
+  Install with all default options
+  Open "Git Bash" app
+
+Mac:
+  Open Terminal → type:  git --version
+  If not installed, it will prompt to install automatically
+
+Linux (Ubuntu):
+  sudo apt install git
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+STEP 4 — CONFIGURE GIT WITH YOUR NAME (1 minute)
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+Open Git Bash (Windows) or Terminal (Mac/Linux) and type:
+
+  git config --global user.name "Peter Chukwudi Udevi"
+  git config --global user.email "Sizaperry@gmail.com"
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+STEP 5 — PUSH ALL PANTHERA CODE TO GITHUB (5 minutes)
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+1. Create a folder on your computer for the project:
+
+   Windows:  Create folder at  C:\panthera-ai\
+   Mac/Linux: mkdir ~/panthera-ai
+
+2. Place ALL your PANTHERA files into that folder:
+   - All .jsx files (Phase1, Phase2, Phase3, Phase4)
+   - All .py files (main.py, phase2.py, phase3.py, phase4.py)
+   - All .sol files (PantheraRoyalty.sol, PantherToken.sol)
+   - db/schema.sql
+   - docker-compose.yml
+   - deploy.sh
+   - nginx/ folder
+   - The GitHub files from this package (README.md, LICENSE, etc.)
+
+3. COPY these new GitHub files into your folder:
+   - README.md
+   - LICENSE
+   - .gitignore
+   - SECURITY.md
+   - .github/workflows/deploy.yml  (create the .github/workflows/ subfolder)
+
+4. Open Git Bash / Terminal in your panthera-ai folder:
+
+   Windows: Right-click inside the folder → "Git Bash Here"
+   Mac/Linux: cd ~/panthera-ai
+
+5. Run these commands ONE BY ONE:
+
+   # Initialise git
+   git init
+
+   # Tell git about your GitHub repo
+   git remote add origin https://github.com/peterudevi/panthera-ai.git
+
+   # Stage all files (the .gitignore will automatically exclude secrets)
+   git add .
+
+   # Create your first commit
+   git commit -m "feat: PANTHERA-AI Phase 1-4 — World's First AI Bot Marketplace
+
+   Creator: Peter Chukwudi Udevi
+   Platform: PANTHERA-AI
+   Royalty: 5% gross revenue — Opay 8135140034 — Blockchain encoded
+   Phases: 1 (foundation), 2 (marketplace), 3 (ML/automation), 4 (global dominance)
+
+   Co-authored-by: Peter Chukwudi Udevi <Sizaperry@gmail.com>"
+
+   # Push to GitHub
+   git branch -M main
+   git push -u origin main
+
+6. GitHub will ask for your username + password.
+   For password: use a Personal Access Token (NOT your GitHub password)
+
+   Create token:
+     GitHub → Settings → Developer Settings → Personal Access Tokens
+     → Tokens (classic) → Generate new token
+     → Name: panthera-deploy
+     → Expiration: 1 year
+     → Scopes: ✅ repo  ✅ workflow
+     → Generate → COPY the token (shown only once)
+
+   Use token as your "password" when git push asks
+
+7. Visit https://github.com/peterudevi/panthera-ai
+   You should see all your files and the README
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+STEP 6 — SET UP AUTO-DEPLOY (GitHub → Your Server)
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+This makes it so every time you push code to GitHub,
+it automatically deploys to your live server.
+
+A) Create SSH key for GitHub to use:
+
+   On your SERVER (SSH in first):
+
+   ssh-keygen -t ed25519 -C "github-actions-panthera" -f ~/.ssh/github_deploy
+   # Press Enter twice (no passphrase)
+
+   # Show the PUBLIC key (copy this)
+   cat ~/.ssh/github_deploy.pub
+
+   # Add to authorized keys on server
+   cat ~/.ssh/github_deploy.pub >> ~/.ssh/authorized_keys
+
+   # Show the PRIVATE key (copy this for GitHub)
+   cat ~/.ssh/github_deploy
+
+B) Add secrets to GitHub:
+
+   Go to: https://github.com/peterudevi/panthera-ai
+   → Settings → Secrets and variables → Actions → New repository secret
+
+   Add these 3 secrets:
+   ┌─────────────────────┬────────────────────────────────────────┐
+   │ Name                │ Value                                  │
+   ├─────────────────────┼────────────────────────────────────────┤
+   │ SERVER_HOST         │ Your server IP (e.g. 165.22.84.123)   │
+   │ SERVER_USER         │ root                                   │
+   │ SERVER_SSH_KEY      │ (paste the PRIVATE key from above)    │
+   └─────────────────────┴────────────────────────────────────────┘
+
+C) On your server, clone the repo:
+
+   cd /root
+   git clone https://github.com/peterudevi/panthera-ai.git
+   cd panthera-ai
+   cp .env.example .env
+   nano .env   ← fill in your real values
+
+D) Test auto-deploy:
+   Make any small change to a file on your computer
+   git add . && git commit -m "test: trigger deploy"
+   git push
+
+   Watch it deploy: GitHub → Actions tab
+   Green checkmark = deployed successfully ✅
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+STEP 7 — PROTECT YOUR MAIN BRANCH
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+GitHub → Settings → Branches → Add rule:
+
+  Branch name pattern:  main
+  ✅ Require status checks to pass before merging
+     Required checks: Test API
+  ✅ Require pull request reviews before merging
+  ✅ Do not allow bypassing the above settings
+
+This means code can only go live after it passes tests. ✓
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+DAILY WORKFLOW — HOW TO UPDATE CODE
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+Every time you improve PANTHERA-AI:
+
+  # 1. Make your changes to the files
+  # 2. In Git Bash / Terminal:
+  git add .
+  git commit -m "feat: describe what you changed"
+  git push
+
+  GitHub Actions will automatically:
+    ✓ Run tests
+    ✓ Build new Docker image
+    ✓ Deploy to your live server
+    ✓ Verify health check passes
+
+  Total time: ~3 minutes from push to live
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+YOUR GITHUB REPOSITORY — FINAL STATE
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+URL:   https://github.com/peterudevi/panthera-ai
+Type:  Private repository
+Files: 20+ files across 4 phases
+CI/CD: Auto-test + auto-deploy on every push
+SSL:   Free Let's Encrypt certificate
+Live:  https://api.panthera-ai.com
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+PANTHERA-AI © 2025 Peter Chukwudi Udevi — All Rights Reserved
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
